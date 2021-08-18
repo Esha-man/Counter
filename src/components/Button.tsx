@@ -4,15 +4,16 @@ type OneButtonType = {
     title: string
     click: () => void
     num: number
+    maxInputValue: number
 }
-
-
 
 
 export const Button = (props: OneButtonType) => {
 
-    let incDis = props.num > 4 ? true : false
-    let resetDis = props.num === 0 ? true : false
+       const incDis: boolean = props.num > props.maxInputValue ? true : false
+
+
+    const resetDis = props.num === 0 ? true : false
 
     return (
 
