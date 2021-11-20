@@ -1,24 +1,19 @@
 import React from "react";
 
 type DisplayType = {
-    num: number
+    num: number | "Incorrect value!"
     maxInputValue: number
+
 }
 
 
 
 export const Display = (props: DisplayType) => {
-  const displayValue = ()=> {
-      if (props.num) {
-        return  props.num
-      } else {
-       return   "incorrect value!!!!!1"
-      }
-  }
+
     return (
         <div className={"display"}>
-            <div className={props.num === props.maxInputValue ? "red" : "white"}>
-                {displayValue()}
+            <div className={(props.num === props.maxInputValue || props.num === "Incorrect value!") ? "red" : "aliceblue"}>
+                {props.num}
 
             </div>
         </div>

@@ -1,10 +1,10 @@
 .App {
   display: flex;
   flex-wrap: wrap;
-  flex: 200px;
   align-items: center;
-  justify-content: space-around;
-  /*text-align: center;*/
+  justify-content: space-evenly;
+  margin-top: 100px;
+  font-size: 20px;
 }
 article {
   flex: 1;
@@ -14,54 +14,56 @@ body{
   background-color: #282c34;
 }
 .counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: aliceblue;
-  /*margin: auto;*/
   margin-top: 10px;
-  /*margin: 30px 0px 0px 100px;*/
-  height: 120px;
-  width: 200px;
-  border: 2px #09edf5 solid;
+  height: 250px;
+  width: 400px;
+  border: 4px #09edf5 solid;
   padding: 40px;
   border-radius: 5px;
-/*  background-color: black;*/
 }
 .display {
-  margin: auto;
-  width: 170px;
-  height: 50px;
-  border: 2px #09edf5 solid;
-  /*background-color: #88f509;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 80%;
+  border: 4px #09edf5 solid;
   border-radius: 5px;
   padding: 10px;
   color: aliceblue;
 }
 .buttons_area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
   margin: auto;
   margin-top: 10px;
-  width: 170px;
-  height: 30px;
-  border: 2px #09edf5 solid;
+  width: 90%;
+  height: 15%;
+  border: 4px #09edf5 solid;
   border-radius: 5px;
   padding: 10px;
 }
-.red {
-  color: red;
-  font-size: xx-large;
 
-}
 .white {
   color: black;
   font-size: medium;
 }
 button {
-
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: #09edf5;
+  width: 50px;
+  height: 25px;
+  font-size: 16px;
 }
 
-.valueInterface{
-
-}
 
 .inputs {
   width: 60px;
@@ -73,4 +75,9 @@ button {
   flex-wrap: wrap;
   flex: 200px;
   align-items: center;
+}
+
+.red {
+  color: red;
+  font-size: xx-large;
 }
