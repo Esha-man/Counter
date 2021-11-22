@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import './App.css';
 import { Display } from "./components/Display";
 import { Button } from "./components/Button";
@@ -9,8 +9,8 @@ import { DisplayWidthInputs } from "./components/DisplayWithInputs";
 function App() {
 
     let [valueDisplay, setvalueDisplay] = useState<any>("Enter values and press 'set'")
+    const [startInputValue, setStartInputValue] = useState<number>( 0 )
     const [maxInputValue, setMaxInputValue] = useState<number>(0)
-    const [startInputValue, setStartInputValue] = useState<number>(0)
 
     //--------- отправка значения в инпуты --------------// 
     //start inp
@@ -29,6 +29,7 @@ function App() {
         const number = Number(e.currentTarget.value)
         setMaxInputValue(number)
     }
+   
 
     //---------колбеки кнопок----------------------//
 
@@ -39,7 +40,42 @@ function App() {
     const increment = () => {
         setvalueDisplay(valueDisplay + 1)
     }
+    //--------------- localeStorage -------------//
+    // const [value, setValue] = useState<any>(0)
+
+    useEffect(() => {
+        let strVD = localStorage.getItem("valueDisplay")
+        if (strVD) {
+            setvalueDisplay(JSON.parse(strVD))
+        }
+    }, [])
+    useEffect(() => {
+        let strSI = localStorage.getItem("startInputValue")
+        if (strSI) {
+            let num = JSON.parse(strSI)
+            setStartInputValue(num)
+        }
+    }, [])
+    useEffect(() => {
+        let strMI = localStorage.getItem("maxInputValue")
+        if (strMI) {
+            let num = JSON.parse(strMI)
+            setMaxInputValue(num)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("valueDisplay", JSON.stringify(valueDisplay))
+    }, [valueDisplay])
+    useEffect(() => {
+        localStorage.setItem("startInputValue", JSON.stringify(startInputValue))
+    }, [startInputValue])
+    useEffect(() => {
+        localStorage.setItem("maxInputValue", JSON.stringify(maxInputValue))
+    }, [maxInputValue])
+
  
+
     return (
         <div className="App">
 
@@ -60,7 +96,7 @@ function App() {
                 </div>
             </div>
 
-         
+
             <div className={"counter"}>
                 <Display num={valueDisplay}
                     maxInputValue={maxInputValue}

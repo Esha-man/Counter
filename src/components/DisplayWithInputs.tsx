@@ -12,7 +12,7 @@ type DisplayType = {
 export const DisplayWidthInputs = (props: DisplayType) => {
 
     const errorStyle = () => {
-        if (props.startInputValue > props.maxInputValue || props.startInputValue < 0) {
+        if (props.startInputValue >= props.maxInputValue || props.startInputValue < 0) {
             return { borderColor: "red", backgroundColor: "red" }
         }
     }
@@ -25,6 +25,7 @@ export const DisplayWidthInputs = (props: DisplayType) => {
                         className={"inputs"}
                         style={errorStyle()}
                         onChange={props.getMaxInputValue}
+                        value={props.maxInputValue}
                     /></span>
 
                 <span className={"inputSpan"}>Start value:
@@ -32,6 +33,7 @@ export const DisplayWidthInputs = (props: DisplayType) => {
                         className={"inputs"}
                         style={errorStyle()}
                         onChange={props.getStartInputValue}
+                        value={props.startInputValue}
                     /></span>
             </div>
 
